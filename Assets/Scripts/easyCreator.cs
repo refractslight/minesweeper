@@ -21,20 +21,32 @@ public class easyCreator : MonoBehaviour
 	public float padding = 0.5f;
 //	public Material[] materialList = new Material[2];
 //	int matIndex = 0;
-	public Color tile1 = new Vector4 (171, 120, 73, 255);
-	public Color tile2 = new Vector4 (75, 52, 32, 255);
+	public Color tile1;
+	public Color tile2;
+	public GameObject[] tilesAll;
+	public GameObject[] tilesMined;
+	public GameObject[] tilesUnMined;
 
 
 	// Use this for initialization
 	void Start ()
 	{
+		CreateTiles ();	
+	}
+	// Update is called once per frame
+	void Update ()
+	{
+		
+	}
+
+	void CreateTiles() {
 		for (int z = 0; z < columns; z = z + 1) {
 			//matIndex = z % 2;
 			for (int x = 0; x < rows; x = x + 1) {
 				GameObject _clone = Instantiate (tilePrefab, new Vector3 (x, 0, z), Quaternion.identity) as GameObject;
-//				Material _mat = _clone.GetComponent<Material> ();
+				//				Material _mat = _clone.GetComponent<Material> ();
 
-//				_mat.color
+				//				_mat.color
 
 				if (x % 2 == 0) {
 					if (z % 2 == 0) {
@@ -56,11 +68,6 @@ public class easyCreator : MonoBehaviour
 
 			}
 		}
-	}
-	// Update is called once per frame
-	void Update ()
-	{
-		
 	}
 }
 
